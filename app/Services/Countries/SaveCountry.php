@@ -23,34 +23,14 @@ class SaveCountry
     private $active;
 
     /**
-     * @param string $name
+     * @params
      */
-    public function setName(string $name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @param string $slug
-     */
-    public function setSlug(string $slug)
-    {
-        $this->slug = $slug;
-    }
-
-    /**
-     * @param bool $active
-     */
-    public function setActive(bool $active)
-    {
-        $this->active = $active;
-    }
 
     public function handle() {
         $country = new Country();
-        $country->name = $this->name;
-        $country->slug = $this->slug;
-        $country->active = $this->active;
+        $country->name = $this->setName();
+        $country->slug = $this->setSlug();
+        $country->active = $this->setActive();
 
         if ($country->save()) {
             return $country;
